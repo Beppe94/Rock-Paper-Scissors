@@ -5,36 +5,50 @@ function getcomputerchoice() {
     return choices[random]
 }
 
+let userScore = 0
+let compScore = 0
 
-//user choice
-function getuserchoice() {
-    let input = ''
-    while ((input != 'rock') || (input != 'paper') || (input != 'scissors')) {
-        input = prompt('choose between: Rock, Paper, Scissors ').toLowerCase()
-        if (input == 'rock' || input == 'paper' || input == 'scissors')
-            return input
-        else {
-            return 'Invalid input'
+function round(user, computer) {
+
+    if ((user == 'rock' && computer == 'scissors') ||
+        (user == 'scissors' && computer == 'paper') ||
+        (user == 'paper' && computer == 'rock')) {
+            
+        userScore += 1
+        result = ('You win! ' + user + ' beats ' + computer
+            + " Player score: " + userScore + " Computer score: " + compScore)
+
+        } else if(user == computer) {
+            result = ('It\'s a tie. You both chose ' + user
+            + " Player score: " + userScore + " Computer score: " + compScore)
+        } else {
+            compScore += 1
+            result = 'I won the game! Reload the page to play again'
         }
-    }   
-}
+        if (userScore == 5) {
+            result = 'You won the game! Reload the page to play again'
+        }
+            
+        if (compScore == 5) {
+            result = 'I won the game! Reload the page to play again'
+        }
+    console.log(userScore,compScore);
+    return result
+}   
 
-function round(computer, person) {
-    if (computer == 'rock' && person == 'scissors') {
-        return 'The computer wins!! Try again!'
-    } else if (computer == 'paper' && person == 'rock') {
-        return 'The computer wins!! Try again!'
-    } else if (computer == 'scissors' && person == 'paper') {
-        return 'The computer wins!! Try again!'
-    } else if (computer == 'rock' && person == 'rock'){
-        return 'Tie'
-    } else if (computer == 'paper' && person == 'paper'){
-        return 'Tie'
-    } else if (computer == 'scissors' && person == 'scissors'){
-        return 'Tie'
-    } else {
-        return 'You win!!'
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let userChoice = prompt('Type: Rock, Paper, or Scissors').toLowerCase()
+        const compChoice = getcomputerchoice()
+        console.log(round(userChoice, compChoice))
     }
+    if (userScore > compScore) {
+        console.log(`You're the winner! Final Score: ${userScore} to ${compScore}`);
+    } else if (compScore > userScore) {
+        console.log(`You're the loser. Final Score: ${userScore} to ${compScore}`);
+    } else
+        console.log(`You tied. Final Score: ${userScore} to ${compScore}`);
 }
 
-console.log(round(getcomputerchoice(), getuserchoice()))
+
+console.log((game()));

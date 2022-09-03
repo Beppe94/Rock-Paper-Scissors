@@ -15,24 +15,16 @@ function round(user, computer) {
         (user == 'paper' && computer == 'rock')) {
             
         userScore += 1
-        result = ('You win! ' + user + ' beats ' + computer
-            + " Player score: " + userScore + " Computer score: " + compScore)
+        result = (`You win! ${user} beats ${computer}`)
 
         } else if(user == computer) {
-            result = ('It\'s a tie. You both chose ' + user
-            + " Player score: " + userScore + " Computer score: " + compScore)
+            result = (`It's a Tie, you both choose ${user}`)
         } else {
             compScore += 1
-            result = 'I won the game! Reload the page to play again'
+            result = (`You lose! ${computer} beats ${user}`)
         }
-        if (userScore == 5) {
-            result = 'You won the game! Reload the page to play again'
-        }
-            
-        if (compScore == 5) {
-            result = 'I won the game! Reload the page to play again'
-        }
-    console.log(userScore,compScore);
+
+    console.log(`Your score: ${userScore} vs computer score: ${compScore}`);
     return result
 }   
 

@@ -27,7 +27,7 @@ function round(user, computer) {
     console.log(`Your score: ${userScore} vs computer score: ${compScore}`);
     return result
 }   
-
+/*
 function game() {
     for (let i = 0; i < 5; i++) {
         let userChoice = prompt('Type: Rock, Paper, or Scissors').toLowerCase()
@@ -41,6 +41,19 @@ function game() {
     } else
         console.log(`You tied. Final Score: ${userScore} to ${compScore}`);
 }
+*/
 
+const rockBtn = document.getElementById('rockBtn')
+const paperBtn = document.getElementById('paperBtn')
+const scissorsBtn = document.getElementById('scissorsBtn')
 
-console.log((game()));
+rockBtn.addEventListener('click', () => onclick('rock'))
+paperBtn.addEventListener('click', () => onclick('paper'))
+scissorsBtn.addEventListener('click', () => onclick('scissors'))
+
+function onclick(userchoice) {
+
+    const compChoice = getcomputerchoice()
+    round(userchoice,compChoice)
+}
+//console.log((game()));

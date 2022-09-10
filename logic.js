@@ -7,6 +7,7 @@ function getcomputerchoice() {
 
 let userScore = 0
 let compScore = 0
+let winningTxt = ''
 
 function round(user, computer) {
 
@@ -15,17 +16,18 @@ function round(user, computer) {
         (user == 'paper' && computer == 'rock')) {
             
         userScore++
-        result = (`You win! ${user} beats ${computer}`)
-
+        winningTxt = 'You win!'
+        
         } else if(user == computer) {
-            result = (`It's a Tie, you both choose ${user}`)
+            winningTxt = 'It\'s a tie!'
         } else {
             compScore++
-            result = (`You lose! ${computer} beats ${user}`)
+            winningTxt = 'The computer wins!'
         }
 
     //console.log(`Your score: ${userScore} vs computer score: ${compScore}`);
     //return result
+    updateMessage(winningTxt, user, computer)
 }   
 /*
 function game() {
@@ -48,18 +50,30 @@ const paperBtn = document.getElementById('paperBtn')
 const scissorsBtn = document.getElementById('scissorsBtn')
 const playerScore = document.getElementById('playerScore')
 const computerScore = document.getElementById('computerScore')
+const txtWinner = document.getElementById('txtWinner')
+const txtScore = document.getElementById('txtScore')
+const popUp = document.getElementById('popUp')
+const restart = document.getElementById('restart')
 
 rockBtn.addEventListener('click', () => onclick('rock'))
 paperBtn.addEventListener('click', () => onclick('paper'))
 scissorsBtn.addEventListener('click', () => onclick('scissors'))
+restart.addEventListener('click', () => restartGame())
 
 function onclick(userchoice) {
     if (gameOver()) {
+        openPopup()
         return
     }
+
     const compChoice = getcomputerchoice()
     round(userchoice,compChoice)
     updateScore()
+
+    if (gameOver()) {
+        openPopup()
+        return
+    }
 }
 
 function gameOver () {
@@ -67,8 +81,43 @@ function gameOver () {
 }
 
 function updateScore() {
+    if(winningTxt === 'You win!') {
+        txtWinner.textContent = 'You Win'
+    } else if( winningTxt === 'It\'s a tie!') {
+        txtWinner.textContent = 'Tie!'
+    } else {
+        txtWinner.textContent = 'You lose!'
+    }
+
     playerScore.textContent = `Player Score: ${userScore}`
-    computerScore.textContent = `Computer Score ${compScore}` 
+    computerScore.textContent = `Computer Score: ${compScore}` 
 }
 
+function updateMessage(winningTxt, user, computer) {
+    if(winningTxt === 'You win!') {
+        txtScore.textContent = `You win, ${user} beats ${computer}`
+    } else if( winningTxt === 'It\'s a tie!') {
+        txtScore.textContent = `Both chose ${user}`
+    } else {
+        txtScore.textContent = `You lost, ${computer} beats ${user}`
+    }
+}
+
+function openPopup() {
+    popUp.classList.add('open-popup')
+}
+
+function closePopup() {
+    popUp.classList.remove('open-popup')
+}
+
+function restartGame() {
+    userScore = 0
+    compScore = 0
+    playerScore.textContent = 'PLayer Score: 0' 
+    computerScore.textContent = 'Computer Score: 0'
+    txtWinner.textContent = 'Choose Wisely'
+    txtScore.textContent = 'First to 5 wins the game'
+    closePopup()
+}
 //console.log((game()));

@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="logic.js" defer></script>
     <title>Rock Paper Scissors</title>
     <h1 class="title">Rock Paper Scissors</h1>
-    <script src="logic.js" defer></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="scores">
         <h1>Scores</h1>
-        <h2>Choose Wisely</h2>
+        <h2 id="txtWinner">Choose Wisely</h2>
+        <h3 id="txtScore">First to 5 wins the game</h3>
     </div>
         <div>
             <p id="playerScore">Player Score: 0</p>
@@ -20,11 +21,16 @@
         <div>
             <p id="computerScore">Computer Score: 0</p>
         </div>
+        
     </div>
     <div class="btn">
         <button id="rockBtn">Rock</button>
         <button id="paperBtn">Paper</button>
         <button id="scissorsBtn">Scissors</button>
+    </div>
+    <div class="popup" id="popUp">
+        <h3>Thank You for playing!</h3>
+        <button id="restart">Restart Game</button>
     </div>
 </body>
 </html>

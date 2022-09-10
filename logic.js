@@ -121,9 +121,9 @@ function closePopup() {
 function restartGame() {
     userScore = 0
     compScore = 0
-    playerScore.textContent = 'PLayer Score: 0' 
+    playerScore.textContent = 'Player Score: 0' 
     computerScore.textContent = 'Computer Score: 0'
-    txtWinner.textContent = 'Choose Wisely'
+    txtWinner.textContent = 'Choose Wisely...'
     txtScore.textContent = 'First to 5 wins the game'
     closePopup()
 }

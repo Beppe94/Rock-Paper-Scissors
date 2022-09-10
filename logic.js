@@ -14,18 +14,18 @@ function round(user, computer) {
         (user == 'scissors' && computer == 'paper') ||
         (user == 'paper' && computer == 'rock')) {
             
-        userScore += 1
+        userScore++
         result = (`You win! ${user} beats ${computer}`)
 
         } else if(user == computer) {
             result = (`It's a Tie, you both choose ${user}`)
         } else {
-            compScore += 1
+            compScore++
             result = (`You lose! ${computer} beats ${user}`)
         }
 
-    console.log(`Your score: ${userScore} vs computer score: ${compScore}`);
-    return result
+    //console.log(`Your score: ${userScore} vs computer score: ${compScore}`);
+    //return result
 }   
 /*
 function game() {
@@ -46,14 +46,29 @@ function game() {
 const rockBtn = document.getElementById('rockBtn')
 const paperBtn = document.getElementById('paperBtn')
 const scissorsBtn = document.getElementById('scissorsBtn')
+const playerScore = document.getElementById('playerScore')
+const computerScore = document.getElementById('computerScore')
 
 rockBtn.addEventListener('click', () => onclick('rock'))
 paperBtn.addEventListener('click', () => onclick('paper'))
 scissorsBtn.addEventListener('click', () => onclick('scissors'))
 
 function onclick(userchoice) {
-
+    if (gameOver()) {
+        return
+    }
     const compChoice = getcomputerchoice()
     round(userchoice,compChoice)
+    updateScore()
 }
+
+function gameOver () {
+    return userScore == 5 || compScore == 5;
+}
+
+function updateScore() {
+    playerScore.textContent = `Player Score: ${userScore}`
+    computerScore.textContent = `Computer Score ${compScore}` 
+}
+
 //console.log((game()));

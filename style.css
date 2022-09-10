@@ -1,0 +1,13 @@
+html, body {
+    margin-top: -11px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    background-image: linear-gradient(90deg, #23074d, rgba(204, 83, 51))
+    
+}

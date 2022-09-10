@@ -54,6 +54,7 @@ const txtWinner = document.getElementById('txtWinner')
 const txtScore = document.getElementById('txtScore')
 const popUp = document.getElementById('popUp')
 const restart = document.getElementById('restart')
+const finalScore = document.getElementById('finalScore')
 
 rockBtn.addEventListener('click', () => onclick('rock'))
 paperBtn.addEventListener('click', () => onclick('paper'))
@@ -72,7 +73,7 @@ function onclick(userchoice) {
 
     if (gameOver()) {
         openPopup()
-        return
+        updateFinalScore()
     }
 }
 
@@ -101,6 +102,12 @@ function updateMessage(winningTxt, user, computer) {
     } else {
         txtScore.textContent = `You lost, ${computer} beats ${user}`
     }
+}
+
+function updateFinalScore() {
+    return userScore > compScore
+        ? (finalScore.textContent = 'You Won!')
+        : (finalScore.textContent = 'You lost...')
 }
 
 function openPopup() {

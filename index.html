@@ -12,26 +12,31 @@
 <body>
     <div class="scores">
         <h1>Scores</h1>
-        <h2 id="txtWinner">Choose Wisely</h2>
-        <h3 id="txtScore">First to 5 wins the game</h3>
-    </div>
-        <div>
-            <p id="playerScore">Player Score: 0</p>
+        <h2  id="txtWinner">Choose Wisely</h2>
+        <h3  id="txtScore">First to 5 wins the game</h3>
+        <div class="container">
+            <div class="player">
+                <div class="icons" id="pIcon">❔</div>
+                <p id="playerScore">Player Score: 0</p>
+            </div>
+            <div class="computer">
+                <div class="icons" id="cIcon">❔</div>
+                <p id="computerScore">Computer Score: 0</p>
+            </div>
         </div>
-        <div>
-            <p id="computerScore">Computer Score: 0</p>
-        </div>
-        
     </div>
-    <div class="btn">
-        <button id="rockBtn">Rock</button>
-        <button id="paperBtn">Paper</button>
-        <button id="scissorsBtn">Scissors</button>
+    <div class="wrapper">
+        <button class="btn" id="rockBtn">🪨</button>
+        <button class="btn" id="paperBtn">📜</button>
+        <button class="btn" id="scissorsBtn">✄</button>
     </div>
     <div class="popup" id="popUp">
         <h2 id="finalScore"></h2>
         <h3>Thank You for playing!</h3>
         <button id="restart">Restart Game</button>
+    </div>
+    <div>
+        <p>Copyrights © Beppe94 2022 <a href="https://github.com/Beppe94" >Github</a></p>
     </div>
 </body>
 </html>

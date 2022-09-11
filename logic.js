@@ -9,6 +9,7 @@ let userScore = 0
 let compScore = 0
 let winningTxt = ''
 
+//winner check function
 function round(user, computer) {
 
     if ((user == 'rock' && computer == 'scissors') ||
@@ -25,25 +26,8 @@ function round(user, computer) {
             winningTxt = 'The computer wins!'
         }
 
-    //console.log(`Your score: ${userScore} vs computer score: ${compScore}`);
-    //return result
     updateMessage(winningTxt, user, computer)
-}   
-/*
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let userChoice = prompt('Type: Rock, Paper, or Scissors').toLowerCase()
-        const compChoice = getcomputerchoice()
-        console.log(round(userChoice, compChoice))
-    }
-    if (userScore > compScore) {
-        console.log(`You're the winner! Final Score: ${userScore} to ${compScore}`);
-    } else if (compScore > userScore) {
-        console.log(`You're the loser. Final Score: ${userScore} to ${compScore}`);
-    } else
-        console.log(`You tied. Final Score: ${userScore} to ${compScore}`);
 }
-*/
 
 const rockBtn = document.getElementById('rockBtn')
 const paperBtn = document.getElementById('paperBtn')
@@ -63,6 +47,7 @@ paperBtn.addEventListener('click', () => onclick('paper'))
 scissorsBtn.addEventListener('click', () => onclick('scissors'))
 restart.addEventListener('click', () => restartGame())
 
+//function to get user choice from buttons and computer random computer choice
 function onclick(userchoice) {
     if (gameOver()) {
         openPopup()
@@ -150,4 +135,3 @@ function restartGame() {
     cIcon.textContent = '❔'
     closePopup()
 }
-//console.log((game()));

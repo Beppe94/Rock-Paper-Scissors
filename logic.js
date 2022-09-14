@@ -102,11 +102,11 @@ function updateIcon(userIcon, compIcon) {
 
 function updateMessage(winningTxt, user, computer) {
     if(winningTxt === 'You win!') {
-        txtScore.textContent = `You win, ${user} beats ${computer}`
+        txtScore.textContent = `${user} beats ${computer}`
     } else if( winningTxt === 'It\'s a tie!') {
         txtScore.textContent = `Both chose ${user}`
     } else {
-        txtScore.textContent = `You lost, ${user} lose against ${computer}`
+        txtScore.textContent = `${user} lose against ${computer}`
     }
 }
 
